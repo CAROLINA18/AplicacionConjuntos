@@ -1,0 +1,26 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/identitydb
+    username: postgres
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+
+security:
+  jwt:
+    # Para demo. En prod, usa un secreto fuerte (mínimo 32+ bytes) y guárdalo como env var.
+    secret: "CAMBIA-ESTO-POR-UN-SECRETO-MUY-LARGO-DE-AL-MENOS-32-CARACTERES"
+    expiration-minutes: 120
